@@ -16,19 +16,22 @@ public class HomePageTest extends BaseTest {
     @Test
     public void homePageLoads() {
         new HomePage(driver).open(ConfigReader.baseUrl());
-        WebDriverWait wait = new WebDriverWait(
-            driver, Duration.ofSeconds(15)
-        );
 
-        boolean headerLinkText = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(
-                By.linkText("RESTful API")
-            )
-        ).isDisplayed();
+        boolean headerLinkText = driver.findElement(By.linkText("RESTful API")).isDisplayed();
+        Assert.assertTrue(headerLinkText);
+        // WebDriverWait wait = new WebDriverWait(
+        //     driver, Duration.ofSeconds(15)
+        // );
 
-        Assert.assertTrue(
-            headerLinkText,
-            "RESTful API link should be displayed"
-        );
+        // boolean headerLinkText = wait.until(
+        //     ExpectedConditions.visibilityOfElementLocated(
+        //         By.linkText("RESTful API")
+        //     )
+        // ).isDisplayed();
+
+        // Assert.assertTrue(
+        //     headerLinkText,
+        //     "RESTful API link should be displayed"
+        // );
     }
 }
