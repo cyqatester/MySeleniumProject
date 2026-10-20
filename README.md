@@ -1,4 +1,4 @@
-# Selenium Maven Framework — GitHub Actions
+# Selenium TestNG Maven Framework — GitHub Actions
 
 This project using Java 25, Maven, Selenium 4, TestNG, Chrome, and Page Object Model. Also included selenium-ci.yml for GitHub Actions CI/CD
 
