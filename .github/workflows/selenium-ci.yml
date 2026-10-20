@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 20
 
     env:
-      BASE_URL: ${{ vars.BASE_URL || 'https://example.com' }}
+      BASE_URL: ${{ vars.BASE_URL || 'baseUrl=https://restful-api.dev' }}
       HEADLESS: 'true'
 
     steps:
