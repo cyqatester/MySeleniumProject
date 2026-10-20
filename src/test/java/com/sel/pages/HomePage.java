@@ -1,10 +1,14 @@
 package com.sel.pages;
 
+import java.time.Duration;
 import java.util.Objects;
 
 import org.jspecify.annotations.NonNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
     private final WebDriver driver;
@@ -31,5 +35,25 @@ public class HomePage {
 
     public boolean hasHeading() {
         return !driver.findElements(pageHeading).isEmpty();
+    }
+
+    public WebElement clickViewEndpointButton(int time){
+        By viewEndpointsButton =
+            By.xpath("//button[contains(., 'View Endpoints')]");
+
+        WebDriverWait wait = waitTimer(time);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(viewEndpointsButton));
+    }
+
+    public WebElement clickPublicButton(int time){
+        By publicButton =
+            By.cssSelector("button[value='public']");
+
+        WebDriverWait wait = waitTimer(time);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(publicButton));
+    }
+
+    public WebDriverWait waitTimer(int time){
+        return new WebDriverWait(driver, Duration.ofSeconds(time));
     }
 }
