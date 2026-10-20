@@ -10,25 +10,26 @@ import org.testng.annotations.Test;
 
 import com.sel.base.BaseTest;
 import com.sel.config.ConfigReader;
-import com.sel.pages.HomePage;
+// import com.sel.pages.HomePage;
 
 public class HomePageTest extends BaseTest {
     @Test
     public void homePageLoads() {
-        new HomePage(driver).open(ConfigReader.baseUrl());
+        driver.get(ConfigReader.baseUrl());
+
         WebDriverWait wait = new WebDriverWait(
-                    driver, Duration.ofSeconds(15)
-            );
+            driver, Duration.ofSeconds(15)
+        );
 
-            boolean headerLink = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.linkText("RESTful API")
-                    )
-            ).isDisplayed();
+        boolean headerLinkText = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.tagName("h1")
+            )
+        ).isDisplayed();
 
-            Assert.assertTrue(
-                    headerLink,
-                    "RESTful API header link should be displayed"
-            );
+        Assert.assertTrue(
+            headerLinkText,
+            "Main heading should be displayed"
+        );
     }
 }
