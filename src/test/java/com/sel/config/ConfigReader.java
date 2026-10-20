@@ -40,6 +40,6 @@ public final class ConfigReader {
     }
 
     public static String baseUrl() {
-        return get("baseUrl", "https://restful-api.dev");
+        return get("baseUrl", "https://restful-api.dev/");
     }
 }
