@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Selenium Maven Suite" verbose="1" parallel="false">
+    <listeners>
+        <listener class-name="com.sel.listeners.TestListener"/>
+    </listeners>
+    <test name="Chrome UI Tests">
+        <classes>
+            <class name="com.sel.tests.HomePageTest"/>
+        </classes>
+    </test>
+</suite>
