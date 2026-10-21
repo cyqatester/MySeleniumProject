@@ -10,6 +10,7 @@ import com.sel.config.ConfigReader;
 import com.sel.pages.HomePage;
 
 public class HomePageTest extends BaseTest {
+
     @Test
     public void homePageLoads() {
         new HomePage(driver).open(ConfigReader.baseUrl());
@@ -22,7 +23,7 @@ public class HomePageTest extends BaseTest {
     public void clickViewEndpointTest() throws InterruptedException {
         HomePage homePage = new HomePage(driver).open(ConfigReader.baseUrl());
 
-        WebElement viewEndpointButton = homePage.clickViewEndpointButton(3);
+        WebElement viewEndpointButton = homePage.clickViewEndpointButton();
         Assert.assertTrue(viewEndpointButton.isDisplayed());
         viewEndpointButton.click();
     }
@@ -32,12 +33,12 @@ public class HomePageTest extends BaseTest {
         HomePage homePage = new HomePage(driver).open(ConfigReader.baseUrl());
 
         //View Endpoints button
-        WebElement viewEndpointButton = homePage.clickViewEndpointButton(3);
+        WebElement viewEndpointButton = homePage.clickViewEndpointButton();
         Assert.assertTrue(viewEndpointButton.isDisplayed());
         viewEndpointButton.click();
         
         //Public Button
-        WebElement publicButton = homePage.clickPublicButton(3);
+        WebElement publicButton = homePage.clickPublicButton();
         Assert.assertTrue(publicButton.isDisplayed()); 
         publicButton.click();
     }
